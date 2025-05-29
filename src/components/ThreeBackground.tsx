@@ -1,7 +1,6 @@
 
 import { useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, Sphere, Float } from "@react-three/drei";
 import * as THREE from "three";
 
 const FloatingGeometry = () => {
@@ -15,17 +14,15 @@ const FloatingGeometry = () => {
   });
 
   return (
-    <Float speed={2} rotationIntensity={1} floatIntensity={2}>
-      <mesh ref={meshRef} position={[2, 0, 0]}>
-        <icosahedronGeometry args={[1, 0]} />
-        <meshStandardMaterial
-          color="#00f5ff"
-          wireframe
-          transparent
-          opacity={0.6}
-        />
-      </mesh>
-    </Float>
+    <mesh ref={meshRef} position={[2, 0, 0]}>
+      <icosahedronGeometry args={[1, 0]} />
+      <meshStandardMaterial
+        color="#00f5ff"
+        wireframe
+        transparent
+        opacity={0.6}
+      />
+    </mesh>
   );
 };
 
@@ -52,6 +49,20 @@ const AnimatedSphere = () => {
   );
 };
 
+const BackgroundSphere = () => {
+  return (
+    <mesh position={[0, 0, -10]}>
+      <sphereGeometry args={[20, 32, 32]} />
+      <meshBasicMaterial
+        color="#1a0033"
+        transparent
+        opacity={0.1}
+        side={THREE.BackSide}
+      />
+    </mesh>
+  );
+};
+
 const ThreeBackground = () => {
   return (
     <div className="absolute inset-0 z-0">
@@ -62,23 +73,7 @@ const ThreeBackground = () => {
         
         <FloatingGeometry />
         <AnimatedSphere />
-        
-        <Sphere args={[20, 32, 32]} position={[0, 0, -10]}>
-          <meshBasicMaterial
-            color="#1a0033"
-            transparent
-            opacity={0.1}
-            side={THREE.BackSide}
-          />
-        </Sphere>
-        
-        <OrbitControls
-          enableZoom={false}
-          enablePan={false}
-          enableRotate={false}
-          autoRotate
-          autoRotateSpeed={0.5}
-        />
+        <BackgroundSphere />
       </Canvas>
     </div>
   );
