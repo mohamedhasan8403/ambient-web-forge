@@ -86,4 +86,29 @@ ambient-web-forge/
 ├── tailwind.config.ts
 └── vite.config.ts
 
+---
+
+## 🚀 Getting Started
+
+Follow these steps to get the project up and running on your local machine.
+
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/mohamedhasan8403/ambient-web-forge.git](https://github.com/mohamedhasan8403/ambient-web-forge.git)
+    cd ambient-web-forge
+    ```
+
+2.  **Install dependencies:**
+    This will install React, Vite, Tailwind CSS, and Framer Motion.
+    ```bash
+    npm install
+    ```
+
+3.  **Start the development server:**
+    This command will launch the application on `localhost:5173`.
+    ```bash
+    npm run dev
+    ```
+
+Now you are all set to start building!
 
